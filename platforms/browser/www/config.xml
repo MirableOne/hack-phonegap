@@ -15,5 +15,7 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*" />
+    <meta content="&#xA;        default-src *;&#xA;        style-src * 'unsafe-inline';&#xA;        script-src * 'unsafe-inline';&#xA;        media-src *; img-src * data:;&#xA;    " http-equiv="Content-Security-Policy" />
     <preference name="DisallowOverscroll" value="true" />
 </widget>

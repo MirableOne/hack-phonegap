@@ -1,7 +1,7 @@
 // Initialize app
 var myApp = new Framework7();
 
-
+console.log(myApp);
 // If we need to use custom DOM library, let's save it to $$ variable:
 var $$ = Dom7;
 
@@ -17,13 +17,14 @@ $$(document).on('deviceready', function() {
 });
 
 
+
 // Now we need to run the code that will be executed only for About page.
 
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
 myApp.onPageInit('about', function (page) {
     // Do something here for "about" page
 
-})
+});
 
 // Option 2. Using one 'pageInit' event handler for all pages:
 $$(document).on('pageInit', function (e) {
@@ -32,12 +33,17 @@ $$(document).on('pageInit', function (e) {
 
     if (page.name === 'about') {
         // Following code will be executed for page with data-page attribute equal to "about"
-        myApp.alert('Here comes About page');
+        //myApp.alert('Here comes About page');
     }
-})
+});
 
 // Option 2. Using live 'pageInit' event handlers for each page
 $$(document).on('pageInit', '.page[data-page="about"]', function (e) {
     // Following code will be executed for page with data-page attribute equal to "about"
-    myApp.alert('Here comes About page');
-})
+    //myApp.alert('Here comes About page');
+    $$.getJSON('http://ec2-18-217-233-76.us-east-2.compute.amazonaws.com/test/get', function (data) {
+        data.forEach(function(v,i){
+            myApp.alert(v.key + '  ' + v.value);
+        });
+    });
+});

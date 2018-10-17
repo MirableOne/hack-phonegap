@@ -15,6 +15,16 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+
+    <allow-navigation href="*" />
+
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src *;
+        style-src * 'unsafe-inline';
+        script-src * 'unsafe-inline';
+        media-src *; img-src * data:;
+    " />
+
     <platform name="android">
         <preference name="android-minSdkVersion" value="14" />
         <allow-intent href="market:*" />
